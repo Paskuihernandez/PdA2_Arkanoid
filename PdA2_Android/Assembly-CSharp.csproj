@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Menu_Play.cs" />
     <Compile Include="Assets\Scripts\Menu_Skip.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Scoreboard_Controller.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/vivica/Documents/GitHub/PdA2_Arkanoid/PdA2_Android/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
