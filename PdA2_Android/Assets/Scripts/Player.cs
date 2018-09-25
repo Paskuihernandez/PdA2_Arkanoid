@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     public GameObject Player1;
     public GameObject Player2;
 
-    public float moveSpeed = 300;
+    public float movSpeed = 300;
 
     private Rigidbody2D playerBody;
     private float ScreenWidth;
@@ -23,6 +23,27 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+
+        int i = 0;
+
+        while(i < Input.touchCount)
+        {
+            if(Input.GetTouch (i).position.y > ScreenHeight / 2)
+            {
+                RunCharacter(1.0f);
+            }
+            if(Input.GetTouch(i).position.y < ScreenHeight / 2)
+            {
+                RunCharacter(-1.0f);
+            }
+            i++;
+        }
+
     }
+
+    private void RunCharacter(float verticalInput)
+    {
+        playerBody.AddForce(new Vector2(verticalInput * movSpeed * Time.deltaTime, 0));
+    }
+
 }
