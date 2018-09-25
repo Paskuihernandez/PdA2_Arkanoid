@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        speed = Random.Range(5, 10);
+        speed = Random.Range(10, 15);
 
         direccionX = Random.Range(0, 2);
         if (direccionX == 0)
@@ -35,7 +35,7 @@ public class Ball : MonoBehaviour {
             direccionY = -1;
         }
 
-        GetComponent<Rigidbody>().velocity = new Vector3(speed * direccionX, speed * direccionY, 0);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(speed * direccionX, speed * direccionY);
 
 	}
 	

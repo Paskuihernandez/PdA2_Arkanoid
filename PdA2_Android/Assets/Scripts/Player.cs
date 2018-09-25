@@ -4,25 +4,46 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public KeyCode up;
-    public KeyCode down;
 
-    float speed;
+    public GameObject Player1;
+    public GameObject Player2;
 
-	// Use this for initialization
-	void Start () {
-        speed = 0.3f;
+    public float movSpeed = 300;
+
+    private Rigidbody2D playerBody;
+    private float ScreenWidth;
+    private float ScreenHeight;
+
+    // Use this for initialization
+    void Start () {
+        ScreenWidth = Screen.width;
+        ScreenHeight = Screen.height;
+        playerBody = Player1.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	/*void Update () {
-        if ()
+	void Update () {
+
+        int i = 0;
+
+        while(i < Input.touchCount)
         {
-            transform.Translate(0, 1, 0);
+            if(Input.GetTouch (i).position.y > ScreenHeight / 2)
+            {
+                RunCharacter(1.0f);
+            }
+            if(Input.GetTouch(i).position.y < ScreenHeight / 2)
+            {
+                RunCharacter(-1.0f);
+            }
+            i++;
         }
-        if ()
-        {
-            transform.Translate(0, -1, 0);
-        }
-    }*/
+
+    }
+
+    private void RunCharacter(float verticalInput)
+    {
+        playerBody.AddForce(new Vector2(verticalInput * movSpeed * Time.deltaTime, 0));
+    }
+
 }
