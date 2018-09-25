@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public KeyCode up;
-    public KeyCode down;
 
-    float speed;
+    public GameObject Player1;
+    public GameObject Player2;
 
-	// Use this for initialization
-	void Start () {
-        speed = 0.3f;
+    public float moveSpeed = 300;
+
+    private Rigidbody2D playerBody;
+    private float ScreenWidth;
+    private float ScreenHeight;
+
+    // Use this for initialization
+    void Start () {
+        ScreenWidth = Screen.width;
+        ScreenHeight = Screen.height;
+        playerBody = Player1.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	/*void Update () {
-        if ()
-        {
-            transform.Translate(0, 1, 0);
-        }
-        if ()
-        {
-            transform.Translate(0, -1, 0);
-        }
-    }*/
+	void Update () {
+        
+    }
 }
